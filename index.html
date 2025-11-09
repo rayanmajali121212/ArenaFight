@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arena Fight — الصفحة الرئيسية</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --yellow:#f8d33a;
+      --yellow-dark:#e0ba2b;
+      --black:#0b0b0b;
+      --muted:#6b6b6b;
+      --glass: rgba(255,255,255,0.06);
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, #fffaf0 0%, #fffdf6 100%);
+      color:var(--black);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* NAVBAR */
+    .nav{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 28px;
+      position:sticky;
+      top:0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.7));
+      backdrop-filter: blur(6px);
+      z-index:40;
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;font-weight:700;
+    }
+    .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--yellow),var(--yellow-dark));
+      display:flex;align-items:center;justify-content:center;color:var(--black);font-weight:800;font-size:18px;box-shadow:0 6px 18px rgba(224,186,43,0.14);
+    }
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--black);text-decoration:none;font-weight:600}
+    .btn{background:var(--black);color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:36px;padding:56px 28px;align-items:center}
+    .hero-left h1{font-size:40px;margin:0 0 12px}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .cta-row{display:flex;gap:12px}
+    .cta-primary{background:linear-gradient(90deg,var(--yellow),var(--yellow-dark));padding:12px 18px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
+    .cta-ghost{background:transparent;border:2px solid var(--yellow);padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+
+    .hero-right{
+      background:linear-gradient(180deg, rgba(11,11,11,0.02), rgba(11,11,11,0.02));
+      border-radius:14px;padding:14px;height:360px;display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:center;box-shadow:0 8px 30px rgba(11,11,11,0.05)
+    }
+    .card-preview{width:100%;height:220px;border-radius:10px;background:linear-gradient(135deg,#fff3c2,#fff6d7);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--black);font-size:18px}
+
+    /* FEATURES */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px}
+    .feature{background:var(--glass);padding:18px;border-radius:12px;border:1px solid rgba(0,0,0,0.03)}
+    .feature h3{margin:0 0 8px}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* EVENTS / GALLERY */
+    .events{padding:28px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .event{height:160px;border-radius:10px;display:flex;align-items:end;padding:12px;background-image:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.12));color:white;font-weight:700}
+    .event.light{background:linear-gradient(135deg,#ffd84d,#ffb84d)}
+    .event.dark{background:linear-gradient(135deg,#3b3b3b,#1b1b1b)}
+
+    /* CONTACT */
+    .contact{padding:28px;display:flex;gap:24px;align-items:flex-start}
+    .contact form{flex:1;display:flex;flex-direction:column;gap:12px}
+    .input,textarea{padding:12px;border-radius:8px;border:1px solid rgba(0,0,0,0.07);outline:none;font-family:inherit}
+    textarea{min-height:120px}
+
+    /* FOOTER */
+    footer{padding:28px;text-align:center;color:var(--muted);border-top:1px solid rgba(0,0,0,0.04)}
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:620px){
+      .nav{padding:12px};
+      .nav-links{display:none}
+      .hero{padding:28px}
+      .features{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));font-weight:700}
+  </style>
+</head>
+<body>
+  <header class="nav" role="banner">
+    <div class="brand">
+      <img src="https://media.wicks.bot/1427720143722778677/suJemw6bqb.png" alt="Arena Fight Logo" style="width:46px;height:46px;border-radius:10px;object-fit:cover;" />
+      <div>
+        <div style="font-weight:800">Arena Fight</div>
+        <div style="font-size:12px;color:var(--muted)">ساحة القتال الإلكترونية</div>
+      </div>
+    </div>
+
+    <nav class="nav-links" role="navigation" aria-label="القوائم">
+      <a href="#about">عنّـا</a>
+      <a href="#events">فعاليات</a>
+      <a href="#contact">تواصل</a>
+      <a class="btn" href="#join">انضم الآن</a>
+    </nav>
+
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1>مرحبا في <span style="background:linear-gradient(90deg,var(--yellow),var(--yellow-dark));-webkit-background-clip:text;color:transparent">Arena Fight</span></h1>
+        <p class="lead">المكان الأفضل للبطولات، التحديات، والفعاليات الحماسية. نظم بطولتك، تابع الجداول، وفز بجوائز رائعة.</p>
+        <div class="cta-row">
+          <button class="cta-primary" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">انضم الآن</button>
+          <button class="cta-ghost" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">شاهد الفعاليات</button>
+        </div>
+
+        <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
+          <div class="pill">بطولات شهرية</div>
+          <div class="pill">سيرفر فعال 24/7</div>
+          <div class="pill">دعم تقني</div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="card-preview">صورة أو فيديو عرضي هنا</div>
+        <div style="display:flex;gap:8px;width:100%;justify-content:space-between">
+          <div style="text-align:center">
+            <div style="font-weight:800;font-size:20px">120+</div>
+            <div class="muted">بطولة</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-weight:800;font-size:20px">24/7</div>
+            <div class="muted">سيرفر</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-weight:800;font-size:20px" id="member-count">جارِ الجلب...</div>
+            <div class="muted">لاعب</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="about">
+      <div class="feature">
+        <h3>تنظيم بطولات</h3>
+        <p>نظام متكامل لإدارة البطولات، الجداول، والنتائج مع لوحة تحكم سهلة.</p>
+      </div>
+      <div class="feature">
+        <h3>جوائز ومكافآت</h3>
+        <p>جوائز شهرية وخيارات رعاية للمناسبات الكبيرة.</p>
+      </div>
+      <div class="feature">
+        <h3>دعم تقني</h3>
+        <p>فريق دعم جاهز للتدخل وحل المشاكل خلال المنافسات.</p>
+      </div>
+    </section>
+
+    <section class="events" id="events">
+      <h2 style="padding:0 28px">الفعاليات القادمة</h2>
+      <div class="grid" style="padding:12px 28px">
+        <div class="event light">بطولة Arena Cup — 15 ديسمبر</div>
+        <div class="event dark">تحدي 1v1 — 22 ديسمبر</div>
+        <div class="event light">سباق الفرق — 5 يناير</div>
+        <div class="event dark">البطولة المفتوحة — 20 يناير</div>
+        <div class="event light">مؤتمر اللاعبين — 10 فبراير</div>
+        <div class="event dark">نصف نهائي الموسم — 1 مارس</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div style="flex:1;max-width:520px">
+        <h3 id="join">انضم إلى Arena Fight</h3>
+        <p class="muted">املأ النموذج بالأسفل أو تواصل معنا عبر قنواتنا.</p>
+        <form onsubmit="event.preventDefault();alert('تم إرسال الطلب — هذا مثال فقط');">
+          <input class="input" placeholder="الاسم" required />
+          <input class="input" placeholder="البريد الإلكتروني" type="email" required />
+          <textarea placeholder="ماذا تود أن تفعل داخل Arena Fight؟" required></textarea>
+          <button class="cta-primary" type="submit">أرسل الطلب</button>
+        </form>
+      </div>
+
+      <div style="flex:1">
+        <h4>معلومات اتصال</h4>
+        <p class="muted">البريد: contact@arena-fight.example</p>
+        <p class="muted">الهاتف: +962 7X XXX XXXX</p>
+        <div style="margin-top:12px">
+          <div style="font-weight:800">ساعات العمل</div>
+          <div class="muted">24/7 دعم فني — فعاليات حسب الجدول</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="max-width:900px;margin:0 auto;padding:12px">© <strong>Arena Fight</strong> — جميع الحقوق محفوظة</div>
+  </footer>
+
+  <script>
+    // small JS for smooth scroll if user clicks nav links (already handled by buttons) and mobile nav placeholder
+    document.querySelectorAll('.nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      })
+    });
+  </script>
+<script>
+fetch("https://discord.com/api/guilds/1427720143722778677/widget.json")
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("member-count").innerText = data.presence_count + " لاعب أونلاين";
+  })
+  .catch(() => {
+    document.getElementById("member-count").innerText = "غير متاح حالياً";
+  });
+</script>
+</body>
+</html>
